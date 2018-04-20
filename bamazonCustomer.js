@@ -29,12 +29,12 @@ function startUp() {
 
 	inquirer.prompt({
 		name: "purchase",
-      	type: "list",
-      	message: "Would you like to purchase something today?",
+      	type: "rawlist",
+      	message: "Would you like to purchase something today? [YES/NO]",
       	choices: ["YES", "NO"]
 	}).then(function(answer){
 
-		if (answer.purchase === "YES"){
+		if (answer.purchase.toUpperCase() === "YES"){
 			itemSelector();
 		}
 
@@ -179,13 +179,13 @@ function continueShopping() {
 
 	inquirer.prompt({
 						name: "continue",
-				      	type: "list",
-				      	message: "Would you like to continue shopping?",
+				      	type: "rawlist",
+				      	message: "Would you like to purchase something today? [YES/NO]",
 				      	choices: ["YES", "NO"]
 
 					}).then(function(answer){
 
-					if (answer.continue === "YES") {
+					if (answer.continue.toUpperCase() === "YES") {
 						startUp();
 					}
 
